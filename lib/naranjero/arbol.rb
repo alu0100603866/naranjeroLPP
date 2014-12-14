@@ -41,5 +41,12 @@ class Arbol
         @contador = 0
         @altura = 0
     end
+    
+    def esta_muerto?
+        if (edad >= 25 && contador == 0)
+            return true
+        end
+        return false
+    end
 
 end

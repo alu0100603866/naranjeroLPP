@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'naranjero'
 
 describe 'Naranjero' do
-    before :all do
+    before :each do
         @Naranjero = Arbol.new
     end
 	it 'La clase naranjo debe contener: altura, edad y numero naranjas' do
@@ -19,10 +19,14 @@ describe 'Naranjero' do
     end
     
     it 'Si el arbol es muy viejo deberia morir' do
-        arbolViejo = Arbol.new
-        arbolViejo.set_edad(25)
-        expect(arbolViejo.altura).to eq(0)
-        expect(arbolViejo.contador).to eq(0)
+        @Naranjero.set_edad(25)
+        expect(@Naranjero.altura).to eq(0)
+        expect(@Naranjero.contador).to eq(0)
+    end
+    
+    it 'Esta muerto?' do
+        @Naranjero.set_edad(25)
+        expect(@Naranjero.esta_muerto?).to eq(true)
     end
         
 end
