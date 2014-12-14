@@ -28,5 +28,18 @@ describe 'Naranjero' do
         @Naranjero.set_edad(25)
         expect(@Naranjero.esta_muerto?).to eq(true)
     end
+    
+    it 'Funciona el metodo recolectar_uno?' do
+       expect(@Naranjero.recolectar_una).to eq("No hay fruta")
+       @Naranjero.uno_mas
+       @Naranjero.uno_mas
+       @Naranjero.uno_mas
+       @Naranjero.uno_mas
+       @Naranjero.uno_mas
+       @Naranjero.uno_mas
+       expect(@Naranjero.recolectar_una).to eq("Se ha recolectado una fruta")
+       @Naranjero.set_edad(26)
+       expect(@Naranjero.recolectar_una).to eq("El arbol esta muerto")
+    end
         
 end

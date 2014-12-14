@@ -12,18 +12,31 @@ class Arbol
             matarArbol()
         else
             @edad += 1
-            if (@altura < 3)
+            if (@altura.to_i < 3)
                 @altura += 0.5
             else
                 @altura += rand(0.5)
             end
-            @contador = produccion()
+            produccion()
         end
+    end
+    
+    def recolectar_una
+        respuesta =""
+        if (esta_muerto?)
+            respuesta = "El arbol esta muerto"
+        elsif (@contador.to_i >= 1)
+            @contador -= 1
+            respuesta = "Se ha recolectado una fruta"
+        else
+            respuesta = "No hay fruta"
+        end
+        respuesta
     end
     
     def produccion
         if (@edad > 4)
-            @contador += rand(3)
+            @contador += 1+rand(@edad) #1+edad/2
         end
     end
     
@@ -38,12 +51,12 @@ class Arbol
     end
         
     def matarArbol
-        @contador = 0
+        #matar fruta con el arbol? @contador = 0 
         @altura = 0
     end
     
     def esta_muerto?
-        if (edad >= 25 && contador == 0)
+        if (edad >= 25 && altura == 0)
             return true
         end
         return false
