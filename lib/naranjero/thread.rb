@@ -5,7 +5,7 @@ hilo = Thread.new do
     30.times do
         naranjero.uno_mas
         puts "edad: " + naranjero.edad.to_s
-        while (naranjero.contador > 0)
+        3.times do
             puts naranjero.recolectar_una
         end
         puts
